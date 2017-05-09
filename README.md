@@ -21,7 +21,7 @@ python urmint.py programname [register0 register1 ... register31]
 
 Launches an instance of programname as an URM, with registers initialized as given input. The rest of the registers are initialized to zeroes. Out of convenience, the number of registers is limited to 32 - however, this doesn't really limit the computational power all that much ;)
 
-programname must be a file containing nothing but lines in the aforementioned format, with no empty lines.
+programname must be a file containing nothing but lines in the aforementioned format, with no empty lines. All values of instructions and registers are indexed from zero.
 
 If successful, urmint prints the state of the computation after each instruction is carried out.
 
