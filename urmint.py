@@ -31,6 +31,9 @@ def main():
     print('Output: %d' % regs[0] if 0 in regs else 0)
 
 
+#parses instruction
+# input: raw_instruction, a string with [IJTZ] followed by 1-3 int arguments
+# output: a tuple representation of the former, eg ('T', 2, 1)
 def parse( raw_instruction ):
     tokens = raw_instruction.split()
     if tokens[0] not in ['I', 'J', 'T', 'Z']:
@@ -42,6 +45,12 @@ def parse( raw_instruction ):
         raise RuntimeError('error: maximum register is ', maxregs)
     return tuple(tokens)
 
+#executes instruction
+# input:
+#  instructions : the list of instruction tuples
+#  regs         : the register list
+#  pc           : program counter
+# output: the new value for pc
 def execute( instructions, regs, pc ):
     if(instructions[pc][0] == 'I'):
         regs[instructions[pc][1]] += 1
