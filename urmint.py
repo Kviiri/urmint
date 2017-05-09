@@ -41,7 +41,7 @@ def parse( raw_instruction ):
     if {'I':1, 'J':3, 'T':2, 'Z':1}[tokens[0]] != len(tokens[1:]):
         raise RuntimeError('Wrong number of args for op ', tokens[0])
     tokens[1:] = map(int, tokens[1:])
-    if len(filter(lambda x: x > maxregs, tokens[1:])) > 0:
+    if len(filter(lambda x: x > maxregs, tokens[1:3])) > 0:
         raise RuntimeError('error: maximum register is ', maxregs)
     return tuple(tokens)
 
